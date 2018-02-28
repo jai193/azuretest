@@ -1,0 +1,4040 @@
+<DocumentData>
+<ProductID>{215F30EC-FF33-4a8c-B2D4-22807F2EFFFE}</ProductID>
+<ProductVersion>0.2.0.0</ProductVersion>
+<ProductType>Commercial</ProductType>
+<ClientData>
+<Events>
+<Event>
+<Name>Client Script</Name>
+<Args/>
+<Script>--################################--
+--##							##--
+--##	EXO Employer Services	##--
+--##	(AU Payroll Enterprise)	##--
+--##							##--
+--################################--
+
+------------------------------------------
+-- Download and run the Server Script
+------------------------------------------
+
+-- Only show the startup/welcome screens if they haven't already been shown
+if (not _ClientRestarted) then
+	Screen.Show("Startup");
+end
+
+-- Download and run the server script
+if (Screen.Show("Connect to Server") == SR_SUCCESS) then
+	TrueUpdate.RunScript("Server Script");
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<ScreenDataLists>
+<ScreenList>
+<Name>Startup</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Welcome</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Welcome</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- ask user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+end</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Welcome</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Next to check for an update</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+Welcome to the %ProductName% update.  Follow the on screen instructions to search for new updates.
+
+This process requires an active Internet connection.
+
+Click Next to continue.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Welcome</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Connect to Server</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>130</Type>
+<Name>Download Server Script</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download Server Script</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<IsWhileInstallingMode>0</IsWhileInstallingMode>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+--[[ Note:
+
+	By default, this screen returns SR_SUCCESS if it succeeds
+	in downloading the required server configuration files.
+	If it fails, it will advance to the next screen (if there
+	is one), which should inform the user that no update
+	information could be found. Note that if this screen is
+	the last screen in the current screen list, attempting to
+	advance to the next screen will return SR_LISTCOMPLETE.
+
+]]
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Start</Name>
+<Args/>
+<Script>-- These actions are performed when the screen is shown.
+
+-- Set up a table for this screen's global variables
+-- so we don't accidentally modify any global variables that are used elsewhere
+screen_globals = {};
+
+-- Whether the Cancel button has been clicked.
+-- We'll set this to true when the user clicks the Cancel button
+-- to tell the GetServerFileCallback function to stop the download
+screen_globals.Cancelled = false;
+
+-- Whether the server configuration files have been downloaded.
+-- We'll set this to true once the download is successful
+-- so we can act accordingly in the On Finish event
+screen_globals.GotServerFiles = false;
+
+-- Keep track of which TrueUpdate Server we're downloading from
+screen_globals.CurrentServerIndex = 0;
+
+-- Initialize the progress bar
+DlgProgressBar.SetRange(CTRL_PROGRESS_BAR_01, 0, 100);
+DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, 0);
+
+
+-----------------------
+-- Callback Functions
+-----------------------
+
+-- Function: GetServerFileCallback
+-- Purpose: Displays the progress and status of
+--          a TrueUpdate.GetServerFile action
+-- Returns:	true - if the GetServerFile action should continue
+--			false - if the GetServerFile action should abort
+function GetServerFileCallback(BytesDownloaded, FileSize, TransferRate, SecondsLeft, EstimatedTimeRemaining, ServerStatusMessage, tableClientUpdateInfo)
+
+	-- Did the user click Cancel?
+	if(screen_globals.Cancelled) then
+		-- Tell the GetServerFile action to abort
+		return false;
+	end
+
+	-- Set a default value for the "Downloading:" message
+	-- (by default we start out downloading update information...)
+	local Downloading = TrueUpdate.GetLocalizedString("MSG_UPDATE_INFORMATION");
+
+	-- Set appropriate messages if we're updating the TrueUpdate Client
+	if(tableClientUpdateInfo) then
+		-- What part of the Client are we updating?
+		if(tableClientUpdateInfo.UpdateType == 0) then
+			Downloading = TrueUpdate.GetLocalizedString("MSG_UPDATE_EXECUTABLE");
+		else
+			Downloading = TrueUpdate.GetLocalizedString("MSG_UPDATE_DATA");
+		end
+	end
+
+	-- Reset the progress bar if we've started downloading something different
+	if((screen_globals.Downloading == nil) or (Downloading ~= screen_globals.Downloading)) then
+
+		DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, 0);
+
+		-- Keep track of what we're downloading so we can reset the
+		-- progress bar when we start downloading something else.
+		screen_globals.Downloading = Downloading;
+	end
+
+	-- Update the status text to show what we're downloading
+	DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_01, {Text=TrueUpdate.GetLocalizedString("MSG_DOWNLOADING")..": "..Downloading.." "..TrueUpdate.GetLocalizedString("MSG_FROM").." "..TrueUpdate.GetLocalizedString("MSG_SERVER_NUMBER").." "..screen_globals.CurrentServerIndex});
+
+	-- Calculate the percentage that has been downloaded so far
+	local PercentComplete = 0;
+	if(FileSize &gt; 0) then
+		PercentComplete = (BytesDownloaded/FileSize) * 100;
+	end
+
+	-- Update the progress bar
+	DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, PercentComplete);
+
+	-- Update the status text
+	if(ServerStatusMessage == "") then
+		-- We're downloading...
+
+		-- Shorten the TransferRate to 2 decimal places
+		local TransferRateFormatted = string.format("%.2f", TransferRate);
+
+		-- Display the elapsed time or time remaining
+		-- and the current transfer rate
+		if(FileSize &gt; 0) then
+			-- We know the size of the file we're downloading
+			-- so use the estimated time remaining
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ESTIMATED_TIME_LEFT")..": "..EstimatedTimeRemaining.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		else
+			-- We don't know the size of the file we're downloading
+			-- so calculate the elapsed time
+			local SecondsElapsed = os.time() - screen_globals.TimeStarted;
+
+			-- from _TU20_Global_Functions.lua:
+			-- Translate the elapsed download time
+			-- into a formatted string ("mm:ss" or "hh:mm:ss")
+			local TimeElapsed = g_GetFormattedTime(SecondsElapsed);
+
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ELAPSED_TIME")..": "..TimeElapsed.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		end
+
+	else
+		-- We're waiting for the server...
+
+		-- Show the current status message
+		DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=ServerStatusMessage});
+	end
+
+	-- Tell the GetServerFile action to continue
+	return true;
+end
+
+------------------------------
+-- Download the server files
+------------------------------
+
+-- Get the list of TrueUpdate Server locations
+local tableTrueUpdateServers = TrueUpdate.GetUpdateServerList();
+
+if(tableTrueUpdateServers) then
+
+	-- Get the current date/time in seconds
+	-- (we'll use this as a reference point
+	-- to calculate the elapsed time)
+	screen_globals.TimeStarted = os.time();
+
+	-- Go through the list of TrueUpdate Server locations
+	-- until we find one where we can successfully download
+	-- the required configuration files
+	for index, ServerName in tableTrueUpdateServers do
+
+		screen_globals.CurrentServerIndex = index;
+
+		-- Attempt to download the server configuration files
+		-- Note: this action will download the Server Script
+		--       and may also update the TrueUpdate Client
+		--       if required
+		screen_globals.GotServerFiles = TrueUpdate.GetServerFile(ServerName, true, GetServerFileCallback);
+
+		-- Break out of this loop if we succeeded
+		if(screen_globals.GotServerFiles) then
+			break;
+		end
+	end
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Finish</Name>
+<Args/>
+<Script>-- These actions are performed after the On Start actions.
+
+-- Did we download the required server configuration files?
+if screen_globals.GotServerFiles then
+	-- Return SR_SUCCESS so the calling script knows that
+	-- a valid Server Script was downloaded and is ready to run
+	Screen.Return(SR_SUCCESS);
+else
+	-- All attempts failed, so don't return SR_SUCCESS;
+	-- instead, advance to the next screen (if there is one)
+	-- which should be an error screen that tells the user
+	-- no update information could be found.
+	Screen.Next();
+
+	-- Note: If this is the last screen in the current
+	-- screen list, this will effectively return
+	-- SR_LISTCOMPLETE to the calling script.
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+
+	-- Tell the GetServerFileCallback function
+	-- that Cancel was clicked so that it will
+	-- abort the download
+	screen_globals.Cancelled = true;
+
+	-- Exit the application
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>212</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>900</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>1</XPStyleBars>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>213</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>5</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>214</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>6</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>901</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>7</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>0</XPStyleBars>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Checking for Updates</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Checking for updates of %ProductName%.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Checking for %ProductName% updates, please wait...
+</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02>Connecting...</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>100</Type>
+<Name>Download Server Script Failed</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download Server Script Failed</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+Application.Exit(EXIT_REASON_USER_ABORTED);
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Error</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Back to retry or Cancel to quit.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+There is an error; the update for %ProductName% cannot continue.
+
+Please check your internet connection.  If the connection is working, contact %CompanyName% support.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Error</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+</ScreenDataLists>
+<ServerFileLocations>
+<ServerFileLocation>
+<LocationType>0</LocationType>
+<Location>http://exo.myob.com.s3.amazonaws.com/Enterprise/EmployerServices/AUS/PayrollEnterprise/</Location>
+<UserName/>
+<Password/>
+<Title>MYOB Update Server 1</Title>
+<Timeout>30</Timeout>
+<Port>80</Port>
+<UseHTTPAuthentication>0</UseHTTPAuthentication>
+<UsePassiveMode>1</UsePassiveMode>
+</ServerFileLocation>
+</ServerFileLocations>
+<UpdateInterval>
+<EnableIntervalCheck>0</EnableIntervalCheck>
+<MainKey>0</MainKey>
+<SubKey/>
+<Days>0</Days>
+<Hours>0</Hours>
+<Minutes>0</Minutes>
+</UpdateInterval>
+<TUWindowSettings>
+<TaskbarTitle>%ProductName% Update</TaskbarTitle>
+<TaskbarVisibility>0</TaskbarVisibility>
+<UseCustomIcon>1</UseCustomIcon>
+<m_strCustomIcon>C:\Program Files\TrueUpdate 3.0\Themes\MYOB Comacc\Comacc2.ico</m_strCustomIcon>
+</TUWindowSettings>
+<ActionPlugins/>
+<LogFileData>
+<CreateLogFile>1</CreateLogFile>
+<LogFilePath>%SourceFolder%\%ProductName% Update Log.txt</LogFilePath>
+<WriteMode>0</WriteMode>
+<ActionDetail>1</ActionDetail>
+</LogFileData>
+<UpdateServers>
+<EncryptionKey>MSXD-1234-1234-FAKE</EncryptionKey>
+<ShortFileName>update</ShortFileName>
+</UpdateServers>
+</ClientData>
+<ServerFileData>
+<Events>
+<Event>
+<Name>Server Script</Name>
+<Args/>
+<Script>--################################--
+--##							##--
+--##	EXO Employer Services	##--
+--##	(AU Payroll Enterprise)	##--
+--##							##--
+--################################--
+
+------------------------------------------
+-- Server Script Configuration Variables
+------------------------------------------
+
+-- What do you want to compare the installed version to?
+g_TargetVersion = SessionVar.Expand("%UpToDateVersion%");
+
+-- Where is the installed version information stored?
+g_INIFilePath = SessionVar.Expand("%SourceFolder%\\comacc.ini");
+g_INISection = SessionVar.Expand("version");
+g_INIValueName = "SOFTWAREVERSION";
+
+-- Where do you want to download the installer/patch file from?
+--g_SourceURL = "www.myobregistration.com/trueupdate/setup.exe";
+g_SourceURL = SessionVar.Expand("%DownloadHost%/%DownloadPath%");
+g_LogicSourceURL = SessionVar.Expand("%DownloadHost%/%LogicDownloadPath%");
+
+g_HTTPTimeout = 30;
+g_HTTPPort = 80;
+g_HTTPUseBasicAuth = false;
+g_HTTPAuthUsername = "";
+g_HTTPAuthPassword = "";
+g_HTTPUseSSL = false;
+g_HTTPTransferType = MODE_BINARY;
+
+-- Where do you want to download the installer/patch file to?
+g_PatchFileDestDir = SessionVar.Expand("%SourceFolder%\\Patches");
+g_PatchFileDest = g_PatchFileDestDir.."\\setup.exe";
+g_LogicFileDest = SessionVar.Expand("%SourceFolder%\\stats.exe");
+-- The logic exe (a Foxpro App) will create the following, containing things we might need to check for:
+g_LogicINIFile = SessionVar.Expand("%SourceFolder%\\stats.ini");
+
+-- What command line arguments do you want to use with the installer/patch file?
+g_PatchCommandLineArgs = SessionVar.Expand("%SourceFolder%");
+
+-- What working folder do you want to set for the installer/patch file?
+-- (use "" for the same folder the TrueUpdate Client is in)
+g_PatchWorkingFolder = g_PatchFileDestDir;
+
+-- Wait for the installer/patch file to return?
+g_WaitForPatch = false;
+
+-- Evaluate the installer/patch file's process return code?
+g_CheckPatchReturnCode = false;
+
+
+------------------------------------------
+-- Identify the Installed Version
+------------------------------------------
+
+-- Read the installed version information from an INI file
+g_InstalledVersion = INIFile.GetValue(g_INIFilePath, g_INISection, g_INIValueName);
+error = Application.GetLastError();
+if (error ~= 0) then
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_DETECT_VERSION_FAILED").."\r\n".._tblErrorMessages[error]);
+	Screen.Show("Update Failed");
+	Application.ExitScript();
+end
+
+-- If the installed version is older than the target version, we need to perform the update
+if (String.CompareFileVersions(g_InstalledVersion, g_TargetVersion) == -1) then
+	g_UpdateRequired = true;
+else
+	g_UpdateRequired = false;
+end
+
+
+--[[ Download and run the Foxpro logic...
+...or alternatively maybe we can do this via ODBC? - probably not due to handling corruption issues..
+if g_UpdateRequired then
+	if (Screen.Show("Download Foxpro Logic") == SR_SUCCESS) then
+		-- Run and wait for exit...
+		File.Run(g_LogicFileDest, g_LogicINIFile, SessionVar.Expand("%SourceFolder%"), SW_MINIMIZE, true);
+
+		-- We should now have an INI file with the statistics we need for the following checks...
+		-- ...so do something useful with them, like check the number of staff or somesuch...
+		g_UpdateRequired = ...
+	end
+end
+--[[]]--]]
+
+-- Exit if an update isn't required
+if not g_UpdateRequired then
+	Screen.Show("Update Not Required");
+
+	-- Restart the comacc app...
+	File.Run(SessionVar.Expand("%SourceFolder%\\comacc.exe"), "", SessionVar.Expand("%SourceFolder%"));
+
+	Application.ExitScript();
+end
+
+
+------------------------------------------
+-- Perform the Update
+------------------------------------------
+
+-- Tell the user an update is available
+if (Screen.Show("Update Required") == SR_LISTCOMPLETE) then
+	-- Download the installer/patch file
+	if (Screen.Show("Download Patch") == SR_SUCCESS) then
+		-- Execute the installer/patch file
+		PatchReturnCode = File.Run(g_PatchFileDest, g_PatchCommandLineArgs, g_PatchWorkingFolder, SW_SHOWNORMAL, g_WaitForPatch);
+		error = Application.GetLastError();
+		if (error ~= 0) then
+			SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_PATCH_RUN_FAILED").."\r\n".._tblErrorMessages[error]);
+			Screen.Show("Update Failed");
+			Application.ExitScript();
+		end
+
+		-- Wait for the installer/patch file to return
+		if (g_WaitForPatch) then
+			-- Evaluate the installer/patch file's process return code
+			if (g_CheckPatchReturnCode) then
+				-- Was the installer/patch successful?
+				if (PatchReturnCode == 0) then
+					Screen.Show("Patch Successful");
+				else
+					SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_PATCH_RETURN_CODE"));
+					Screen.Show("Update Failed");
+				end
+			else
+				-- The installer/patch may have succeeded or failed, so
+				-- tell the user that the update process is complete
+				Screen.Show("Update Finished");
+			end
+		end
+	end
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<ScreenDataLists>
+<ScreenList>
+<Name>Update Required</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Update Available</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Update Available</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();
+
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+end</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Available</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Next to update %ProductName%.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+A newer version of %ProductName% is available.
+
+Please click Next to proceed with the update.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Available</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Download Foxpro Logic</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>130</Type>
+<Name>Download Foxpro File (HTTP)</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download File (HTTP)</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<IsWhileInstallingMode>0</IsWhileInstallingMode>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+-- Set up a table for this screen's global variables
+-- so we don't accidentally modify any global variables that are used elsewhere
+screen_globals = {};
+
+-- Where do you want to download the file from?
+screen_globals.SourceURL = g_LogicSourceURL;
+screen_globals.Port = g_HTTPPort;
+screen_globals.Timeout = g_HTTPTimeout;
+screen_globals.UseBasicAuth = g_HTTPUseBasicAuth;
+screen_globals.AuthUsername = g_HTTPAuthUsername;
+screen_globals.AuthPassword = g_HTTPAuthPassword;
+screen_globals.UseSSL = g_HTTPUseSSL;
+screen_globals.TransferType = g_HTTPTransferType;
+
+-- Where do you want to download the file to?
+screen_globals.DestinationPath = g_LogicFileDest;
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Start</Name>
+<Args/>
+<Script>-- These actions are performed when the screen is shown.
+
+-- Whether the Cancel button has been clicked.
+-- We'll set this to true if the user clicks the Cancel button
+-- to tell the HTTPDownloadCallback function to stop the download
+screen_globals.Cancelled = false;
+
+-- Initialize the progress bar
+DlgProgressBar.SetRange(CTRL_PROGRESS_BAR_01, 0, 100);
+DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, 0);
+
+-- Split the filename out from the full path for display purposes
+local tableFileParts = String.SplitPath(screen_globals.DestinationPath);
+local DestFilename = "";
+if (tableFileParts) then
+	DestFilename = tableFileParts.Filename..tableFileParts.Extension;
+end
+
+-- from _TU20_Global_Functions.lua:
+-- Get the website name (e.g. "www.yoursite.com") from the full URL
+local WebSiteName = g_GetSiteNameFromURL(screen_globals.SourceURL);
+
+
+-- Function: HTTPDownloadCallback
+-- Purpose: A callback function used with the HTTP.Download
+--          or HTTP.DownloadSecure action to report progress
+--          to the user
+-- Returns:	true - if the action should continue
+--			false - if the action should abort
+function HTTPDownloadCallback(BytesDownloaded, FileSize, TransferRate, SecondsLeft, EstimatedTimeRemaining, ServerStatusMessage)
+
+	-- Did the user click Cancel?
+	if (screen_globals.Cancelled) then
+		-- Abort the download
+		return false;
+	end
+
+	-- Update the status text to show what file we're downloading
+	DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_01, {Text=TrueUpdate.GetLocalizedString("MSG_DOWNLOADING")..": "..DestFilename.." "..TrueUpdate.GetLocalizedString("MSG_FROM").." "..WebSiteName});
+
+	-- Calculate the percentage that has been downloaded so far
+	local PercentComplete = 0;
+	if (FileSize &gt; 0) then
+		PercentComplete = (BytesDownloaded / FileSize) * 100;
+	end
+
+	-- Update the progress bar position
+	DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, PercentComplete);
+
+	-- Update the status text
+	if (ServerStatusMessage == "") then
+		-- We're downloading...
+
+		-- Shorten the TransferRate to 2 decimal places
+		local TransferRateFormatted = string.format("%.2f", TransferRate);
+
+		-- Display the elapsed time or time remaining
+		-- and the current transfer rate
+		if (FileSize &gt; 0) then
+			-- We know the size of the file we're downloading
+			-- so use the estimated time remaining
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ESTIMATED_TIME_LEFT")..": "..EstimatedTimeRemaining.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		else
+			-- We don't know the size of the file we're downloading
+			-- so calculate the elapsed time
+			local SecondsElapsed = os.time() - screen_globals.TimeStarted;
+
+			-- from _TU20_Global_Functions.lua:
+			-- Translate the elapsed download time
+			-- into a formatted string ("mm:ss" or "hh:mm:ss")
+			local TimeElapsed = g_GetFormattedTime(SecondsElapsed);
+
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ELAPSED_TIME")..": "..TimeElapsed.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		end
+
+	else
+		-- We're waiting for the server...
+
+		-- Show the current status message
+		DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=ServerStatusMessage});
+	end
+
+	-- Tell the HTTP.Download (or HTTP.DownloadSecure) action to continue
+	return true;
+end
+
+
+---------------------------------------
+-- Download the file from the website
+---------------------------------------
+
+
+-- Set up the HTTP basic authentication table
+local tableBasicAuthData = nil;
+if(screen_globals.UseBasicAuth) then
+	tableBasicAuthData = { UserName=screen_globals.AuthUsername, Password=screen_globals.AuthPassword };
+end
+
+-- Get the current date/time in seconds
+-- (we'll use this as a reference point
+-- to calculate the elapsed time)
+screen_globals.TimeStarted = os.time();
+
+-- Download the file using the appropriate protocal (HTTP or HTTPS)
+if(screen_globals.UseSSL) then
+	HTTP.DownloadSecure(screen_globals.SourceURL, screen_globals.DestinationPath, screen_globals.TransferType, screen_globals.Timeout, screen_globals.Port, tableBasicAuthData, nil, HTTPDownloadCallback);
+else
+	HTTP.Download(screen_globals.SourceURL, screen_globals.DestinationPath, screen_globals.TransferType, screen_globals.Timeout, screen_globals.Port, tableBasicAuthData, nil, HTTPDownloadCallback);
+end
+
+-- Get the error code so we can process it in the "On Finish" event
+screen_globals.DownloadResult = Application.GetLastError();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Finish</Name>
+<Args/>
+<Script>-- These actions are performed after the On Start actions.
+
+-- Was the file downloaded?
+if (screen_globals.DownloadResult == 0) then
+	-- Return SR_SUCCESS so the calling script knows that
+	-- the file was downloaded successfully
+	Screen.Return(SR_SUCCESS);
+else
+	-- Prepare an error message describing what went wrong
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_DOWNLOAD_FAILED").."\r\n".._tblErrorMessages[screen_globals.DownloadResult]);
+
+	-- The download failed, so don't return SR_SUCCESS;
+	-- instead,  advance to the next screen (if there is one)
+	-- which should be an error screen that tells the
+	-- user what happened (using %ErrorMessage%)
+	Screen.Next();
+
+	-- Note: If this is the last screen in the current
+	--       screen list, this will effectively return
+	--       SR_LISTCOMPLETE to the calling script
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+
+	-- Tell the HTTPDownloadCallback function that Cancel was
+	-- clicked so that it will abort the download
+	screen_globals.Cancelled = true;
+
+	-- Exit the application
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>212</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>900</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>1</XPStyleBars>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>213</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>5</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>214</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>6</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>901</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>7</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>0</XPStyleBars>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Downloading File</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Please wait while the file is downloaded...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Downloading the %ProductName% Logic File, please wait...
+</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02>Downloading...</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>100</Type>
+<Name>Download Foxpro File Failed</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download File Failed</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+-- If the %ErrorMessage% session variable hasn't been
+-- set to anything yet, set it to "Unknown error."
+if(SessionVar.Expand("%ErrorMessage%") == "%ErrorMessage%") then
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_UNKNOWN"));
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+end</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Download Error</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Back to retry or Cancel to quit.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+There may be problems with your internet connection, click Back to retry or Cancel to quit.
+
+Error:
+%ErrorMessage%</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Download Error</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Update Not Required</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Already At Target</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Already At Target</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Close button is clicked.
+
+-- Removed the exit as we want to run the comacc app again after this screen!
+---- Exit the update
+--Application.Exit(EXIT_REASON_USER_ABORTED);
+Screen.Return(SR_SUCCESS);
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Complete</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>%ProductName% is up to date.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Close</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+You already have the latest version of %ProductName%.
+
+Click Close to restart %ProductName%.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Not Needed</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Download Patch</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>130</Type>
+<Name>Download File (HTTP)</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download File (HTTP)</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<IsWhileInstallingMode>0</IsWhileInstallingMode>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+-- Set up a table for this screen's global variables
+-- so we don't accidentally modify any global variables that are used elsewhere
+screen_globals = {};
+
+-- Where do you want to download the file from?
+screen_globals.SourceURL = g_SourceURL;
+screen_globals.Port = g_HTTPPort;
+screen_globals.Timeout = g_HTTPTimeout;
+screen_globals.UseBasicAuth = g_HTTPUseBasicAuth;
+screen_globals.AuthUsername = g_HTTPAuthUsername;
+screen_globals.AuthPassword = g_HTTPAuthPassword;
+screen_globals.UseSSL = g_HTTPUseSSL;
+screen_globals.TransferType = g_HTTPTransferType;
+
+-- Where do you want to download the file to?
+screen_globals.DestinationPath = g_PatchFileDest;
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Start</Name>
+<Args/>
+<Script>-- These actions are performed when the screen is shown.
+
+-- Whether the Cancel button has been clicked.
+-- We'll set this to true if the user clicks the Cancel button
+-- to tell the HTTPDownloadCallback function to stop the download
+screen_globals.Cancelled = false;
+
+-- Initialize the progress bar
+DlgProgressBar.SetRange(CTRL_PROGRESS_BAR_01, 0, 100);
+DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, 0);
+
+-- Split the filename out from the full path for display purposes
+local tableFileParts = String.SplitPath(screen_globals.DestinationPath);
+local DestFilename = "";
+if (tableFileParts) then
+	DestFilename = tableFileParts.Filename..tableFileParts.Extension;
+end
+
+-- from _TU20_Global_Functions.lua:
+-- Get the website name (e.g. "www.yoursite.com") from the full URL
+local WebSiteName = g_GetSiteNameFromURL(screen_globals.SourceURL);
+
+
+-- Function: HTTPDownloadCallback
+-- Purpose: A callback function used with the HTTP.Download
+--          or HTTP.DownloadSecure action to report progress
+--          to the user
+-- Returns:	true - if the update should continue
+--			false - if the update should be aborted
+function HTTPDownloadCallback(BytesDownloaded, FileSize, TransferRate, SecondsLeft, EstimatedTimeRemaining, ServerStatusMessage)
+
+	-- Did the user click Cancel?
+	if (screen_globals.Cancelled) then
+		-- Abort the download
+		return false;
+	end
+
+	-- Set the text to be displayed on the screen
+	DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_01, {Text=TrueUpdate.GetLocalizedString("MSG_DOWNLOADING")..": "..DestFilename.." "..TrueUpdate.GetLocalizedString("MSG_FROM").." "..WebSiteName});
+
+	-- Calculate the percentage that has been downloaded so far
+	local PercentComplete = 0;
+	if (FileSize &gt; 0) then
+		PercentComplete = (BytesDownloaded / FileSize) * 100;
+	end
+
+	-- Update the progress bar position
+	DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, PercentComplete);
+
+	-- Update the status text
+	if (ServerStatusMessage == "") then
+		-- We're downloading...
+
+		-- Shorten the TransferRate to 2 decimal places
+		local TransferRateFormatted = string.format("%.2f", TransferRate);
+
+		-- Display the elapsed time or time remaining
+		-- and the current transfer rate
+		if (FileSize &gt; 0) then
+			-- We know the size of the file we're downloading
+			-- so use the estimated time remaining
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ESTIMATED_TIME_LEFT")..": "..EstimatedTimeRemaining.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		else
+			-- We don't know the size of the file we're downloading
+			-- so calculate the elapsed time
+			local SecondsElapsed = os.time() - screen_globals.TimeStarted;
+
+			-- from _TU20_Global_Functions.lua:
+			-- Translate the elapsed download time
+			-- into a formatted string ("mm:ss" or "hh:mm:ss")
+			local TimeElapsed = g_GetFormattedTime(SecondsElapsed);
+
+			local StatusText = TrueUpdate.GetLocalizedString("MSG_ELAPSED_TIME")..": "..TimeElapsed.." - "..TrueUpdate.GetLocalizedString("MSG_TRANSFER_RATE")..": "..TransferRateFormatted.." "..TrueUpdate.GetLocalizedString("MSG_KB_PER_SEC");
+			DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=StatusText});
+		end
+
+	else
+		-- We're waiting for the server...
+
+		-- Show the current status message
+		DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=ServerStatusMessage});
+	end
+
+	-- Tell the HTTP.Download (or HTTP.DownloadSecure) action to continue
+	return true;
+end
+
+
+---------------------------------------
+-- Download the file from the website
+---------------------------------------
+
+
+-- Set up the HTTP basic authentication table
+local tableBasicAuthData = nil;
+if (screen_globals.UseBasicAuth) then
+	tableBasicAuthData = { UserName=screen_globals.AuthUsername, Password=screen_globals.AuthPassword };
+end
+
+-- Get the current date/time in seconds
+-- (we'll use this as a reference point
+-- to calculate the elapsed time)
+screen_globals.TimeStarted = os.time();
+
+-- Download the file using the appropriate protocal (HTTP or HTTPS)
+if (screen_globals.UseSSL) then
+	HTTP.DownloadSecure(screen_globals.SourceURL, screen_globals.DestinationPath, screen_globals.TransferType, screen_globals.Timeout, screen_globals.Port, tableBasicAuthData, nil, HTTPDownloadCallback);
+else
+	HTTP.Download(screen_globals.SourceURL, screen_globals.DestinationPath, screen_globals.TransferType, screen_globals.Timeout, screen_globals.Port, tableBasicAuthData, nil, HTTPDownloadCallback);
+end
+
+-- Get the error code so we can process it in the "On Finish" event
+screen_globals.DownloadResult = Application.GetLastError();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Finish</Name>
+<Args/>
+<Script>-- These actions are performed after the On Start actions.
+
+-- Was the file downloaded?
+if (screen_globals.DownloadResult == 0) then
+	-- Return SR_SUCCESS so the calling script knows that
+	-- the file was downloaded successfully
+	Screen.Return(SR_SUCCESS);
+else
+	-- Prepare an error message describing what went wrong
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_DOWNLOAD_FAILED").."\r\n".._tblErrorMessages[screen_globals.DownloadResult]);
+
+	-- The download failed, so don't return SR_SUCCESS;
+	-- instead,  advance to the next screen (if there is one)
+	-- which should be an error screen that tells the
+	-- user what happened (using %ErrorMessage%)
+	Screen.Next();
+
+	-- Note: If this is the last screen in the current
+	--       screen list, this will effectively return
+	--       SR_LISTCOMPLETE to the calling script
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+
+	-- Tell the HTTPDownloadCallback function that Cancel was
+	-- clicked so that it will abort the download
+	screen_globals.Cancelled = true;
+
+	-- Exit the application
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>212</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>900</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>1</XPStyleBars>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>213</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>5</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>214</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>6</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>901</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>7</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>0</XPStyleBars>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Downloading File</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Please wait while the file is downloaded...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Downloading the %ProductName% update, please wait...
+</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02>Downloading...</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>100</Type>
+<Name>Download File Failed</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Download File Failed</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+-- If the %ErrorMessage% session variable hasn't been
+-- set to anything yet, set it to "Unknown error."
+if(SessionVar.Expand("%ErrorMessage%") == "%ErrorMessage%") then
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_UNKNOWN"));
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Cancel button is clicked.
+
+-- from _TU20_Global_Functions.lua:
+-- Ask the user if they're sure they want to exit
+if g_ConfirmUpdateAbort() then
+	Application.Exit(EXIT_REASON_USER_ABORTED);
+end</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Download Error</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Back to retry or Cancel to quit.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+There may be problems with your internet connection, click Back to retry or Cancel to quit.
+
+Error:
+%ErrorMessage%</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Download Error</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Patch Successful</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Update Successful</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Update Successful</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Close button is clicked.
+
+-- End the screen list
+Screen.End();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Complete</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>The update has completed successfully.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Close</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+%ProductName% was successfully updated.
+
+Click Close to restart %ProductName%.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Complete</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Update Finished</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Update Finished</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Update Finished</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Close button is clicked.
+
+-- End the screen list
+Screen.End();
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Finished</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>The update program has completed the update procedure.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Close</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+The %ProductName% update process is complete.
+
+Click Close to restart %ProductName%.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Finished</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+<ScreenList>
+<Name>Update Failed</Name>
+<Expanded>1</Expanded>
+<TU20Screens>
+<Screen>
+<Type>100</Type>
+<Name>Update Failed</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Update Failed</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Commac_top.bmp</TBIMG>
+<SBIMG>Commac_banner_126w425h_2.bmp</SBIMG>
+<BDIMG/>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>0</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- These actions are performed before the screen is shown.
+
+-- If the %ErrorMessage% session variable hasn't been
+-- set to anything yet, set it to "Unknown error."
+if(SessionVar.Expand("%ErrorMessage%") == "%ErrorMessage%") then
+	SessionVar.Set("%ErrorMessage%", TrueUpdate.GetLocalizedString("ERR_UNKNOWN"));
+end
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- These actions are performed when the Back button is clicked.
+
+-- Go back to the previous screen
+Screen.Back();</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- These actions are performed when the Next button is clicked.
+
+-- Advance to the next screen
+Screen.Next();</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- These actions are performed when the Close button is clicked.
+
+-- Exit the update
+Application.Exit(EXIT_REASON_USER_ABORTED);
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- These actions are performed when the Help button is clicked.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- These actions are triggered by the controls on the screen.
+</Script>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Update</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Update Failed</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Click Close to quit.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Close</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>
+An error occurred while trying to update %ProductName%.
+Please run the update again or contact %CompanyName% support for help.
+
+Error details:
+%ErrorMessage%</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Update Failed</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</TU20Screens>
+</ScreenList>
+</ScreenDataLists>
+<DatFile>
+<ZipFileCRCInfo/>
+<CurrentDatLocation/>
+<DatFailRule>2</DatFailRule>
+</DatFile>
+<EXEFile>
+<CurrentEXEVersion/>
+<CurrentEXELocation/>
+<ClientFailRule>0</ClientFailRule>
+<BuildDataSignature/>
+</EXEFile>
+</ServerFileData>
+<ProjectData>
+<Theme>
+<ProjectTheme>MYOB Comacc</ProjectTheme>
+</Theme>
+<BuildData>
+<GenClient>1</GenClient>
+<CliFolder>M:\ED Product Development - Build\TrueUpdates\Build\Enterprise\EmployerServices\AUS\PayrollEnterprise</CliFolder>
+<CliFilename>TrueUpdateClient.exe</CliFilename>
+<CompressExecutable>1</CompressExecutable>
+<GenSvr>1</GenSvr>
+<SvrShortName>payrollEnterpriseAU</SvrShortName>
+<EncKey>3A6AE47D-E3D6-453D-9B07-8C6DF2595995</EncKey>
+<PreBuildProg/>
+<PreBuildCmdLine/>
+<PreBuildWait>0</PreBuildWait>
+<PostBuildProg/>
+<PostBuildCmdLine/>
+<PostBuildWait>0</PostBuildWait>
+<BuiltBefore>0</BuiltBefore>
+<UserPrivilegeLevel>2</UserPrivilegeLevel>
+<Vars/>
+<UploadLocations>
+<UploadLocation>
+<ID>myobregistration</ID>
+<UploadMethod>0</UploadMethod>
+<Location>www.myobregistration.com/inetpub/wwwroot/myobregistration/trueupdate</Location>
+<Timeout>30</Timeout>
+<Port>21</Port>
+<Username>craigw</Username>
+<Password>
+LjAe/4wX3DE=
+</Password>
+<Account/>
+<UsePassiveMode>1</UsePassiveMode>
+<LastUploadDate>1205448347</LastUploadDate>
+<Upload>0</Upload>
+</UploadLocation>
+<UploadLocation>
+<ID>Upload staging for S3 server</ID>
+<UploadMethod>2</UploadMethod>
+<Location>M:\ED Product Development - Build\TrueUpdates\Deploy\Enterprise\EmployerServices\AUS\PayrollEnterprise</Location>
+<Timeout>30</Timeout>
+<Port>21</Port>
+<Username/>
+<Password>
+P06u7MspdA0=
+</Password>
+<Account/>
+<UsePassiveMode>1</UsePassiveMode>
+<LastUploadDate>1271289658</LastUploadDate>
+<Upload>1</Upload>
+</UploadLocation>
+</UploadLocations>
+<TUResourceStampData>
+<StampExecutable>0</StampExecutable>
+<Comments>Created with TrueUpdate</Comments>
+<CompanyName/>
+<Copyright>Runtime Engine Copyright © 2005-2008 Indigo Rose Corporation (www.indigorose.com)</Copyright>
+<FileDescription>TrueUpdate Client</FileDescription>
+<FileVersion>3.0.1.0</FileVersion>
+<InternalName>tu_rt</InternalName>
+<PrivateBuild/>
+<ProductName>TrueUpdate Client</ProductName>
+<ProductVersion>3.0.1.0</ProductVersion>
+<SpecialBuild/>
+<OriginalFilename>tu_rt.exe</OriginalFilename>
+<Trademarks>Runtime Engine Copyright © 2005-2008 Indigo Rose Corporation (www.indigorose.com)</Trademarks>
+<UseCustomIcon>1</UseCustomIcon>
+<IconFile>C:\Program Files\TrueUpdate 3.0\Themes\MYOB Comacc\Comacc2.ico</IconFile>
+</TUResourceStampData>
+<CodeSigningData>
+<CodeSignLocation>U:\signtool\catalog\signtool.exe</CodeSignLocation>
+<SPCFilename>U:\New Zealand\mycert.pfx</SPCFilename>
+<PVKFilename>U:\New Zealand\myprivatekey.pvk</PVKFilename>
+<TimeStampURL>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampURL>
+<Description>MYOB EXO Employer Services Online Update Checker</Description>
+<DescriptionURL>http://www.myob.com/</DescriptionURL>
+<CodeSignSetups>1</CodeSignSetups>
+<CodeSigningTool>0</CodeSigningTool>
+<Arguments>/p nzcoy7mioc</Arguments>
+</CodeSigningData>
+</BuildData>
+<Environment>
+<CurrentScript>Client Script</CurrentScript>
+</Environment>
+<ProjFileDesc>New Project</ProjFileDesc>
+<ProjFileAuthor>Indigo Rose Corporation</ProjFileAuthor>
+<ProjFileCompany>Indigo Rose Corporation</ProjFileCompany>
+<ProjFileNotes/>
+<ProjFileCopyright>Copyright 2006 Indigo Rose Corporation</ProjFileCopyright>
+<ProjFileURL>http://www.indigorose.com</ProjFileURL>
+<ProjFileEmail/>
+<ProjFileCreatedVer>0.2.0.12</ProjFileCreatedVer>
+<ProjFileSavedVer>3.0.2.0</ProjFileSavedVer>
+</ProjectData>
+<LangSettings>
+<Language>
+<Name>English</Name>
+<Default>1</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+</LangSettings>
+<GlobalScriptIncludes>
+<GlobalIncludeScriptFile>
+<Filename>#TUDIR#\Includes\Scripts\_TU20_Global_Functions.lua</Filename>
+<IRReq>0</IRReq>
+</GlobalIncludeScriptFile>
+</GlobalScriptIncludes>
+<TU2SessionVars>
+<SessionVar>
+<Name>%ProductName%</Name>
+<Value>Employer Services</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%CompanyName%</Name>
+<Value>MYOB</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%Copyright%</Name>
+<Value>Copyright © 2010 %CompanyName%</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%DownloadHost%</Name>
+<Value>exo.myob.com.s3.amazonaws.com</Value>
+<Type>10</Type>
+</SessionVar>
+<SessionVar>
+<Name>%DownloadPath%</Name>
+<Value>Enterprise/EmployerServices/AUS/PayrollEnterprise/Austupgrades.EXE</Value>
+<Type>10</Type>
+</SessionVar>
+<SessionVar>
+<Name>%UpToDateVersion%</Name>
+<Value>2010.01</Value>
+<Type>10</Type>
+</SessionVar>
+</TU2SessionVars>
+</DocumentData>
